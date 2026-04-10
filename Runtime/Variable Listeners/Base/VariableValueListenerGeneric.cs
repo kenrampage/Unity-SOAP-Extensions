@@ -13,10 +13,20 @@ namespace KenRampage.Addons.SOAP.Listeners
     /// </summary>
     public abstract class VariableValueListenerGeneric<TValue> : VariableListenerBase
     {
+        #region Inspector
+
         protected abstract ScriptableVariable<TValue> Variable { get; }
         protected abstract ValueResponse[] ValueResponses { get; }
 
+        #endregion
+
+        #region Runtime
+
         private Action<TValue> _handler;
+
+        #endregion
+
+        #region Registration
 
         protected override void ToggleRegistration(bool toggle)
         {
@@ -45,6 +55,10 @@ namespace KenRampage.Addons.SOAP.Listeners
             }
         }
 
+        #endregion
+
+        #region Matching
+
         protected virtual void ProcessValueResponses(TValue value)
         {
             var responses = ValueResponses;
@@ -65,6 +79,10 @@ namespace KenRampage.Addons.SOAP.Listeners
         {
             return EqualityComparer<TValue>.Default.Equals(expected, current);
         }
+
+        #endregion
+
+        #region Introspection
 
         public override bool ContainsCallToMethod(string methodName)
         {
@@ -97,6 +115,10 @@ namespace KenRampage.Addons.SOAP.Listeners
             return containsMethod;
         }
 
+        #endregion
+
+        #region Nested Types
+
         [Serializable]
         public class ValueResponse
         {
@@ -110,5 +132,7 @@ namespace KenRampage.Addons.SOAP.Listeners
             /// </summary>
             public virtual UnityEvent<TValue> Response { get; }
         }
+
+        #endregion
     }
 }

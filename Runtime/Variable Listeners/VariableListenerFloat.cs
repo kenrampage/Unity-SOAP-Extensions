@@ -11,9 +11,16 @@ namespace KenRampage.Addons.SOAP.Listeners
     [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Float")]
     public class VariableListenerFloat : VariableListenerGeneric<float>
     {
+        #region Inspector
+
         [Tooltip("Variable-response entries to subscribe and invoke.")]
         [SerializeField] private VariableResponse[] _variableResponses;
         protected override VariableListenerGeneric<float>.VariableResponse[] VariableResponses => _variableResponses;
+
+        #endregion
+
+        #region Invocation
+
 
         protected override void InvokeResponse(VariableListenerGeneric<float>.VariableResponse response, float value)
         {
@@ -21,6 +28,10 @@ namespace KenRampage.Addons.SOAP.Listeners
             if (response is VariableResponse floatResponse)
                 floatResponse.IntResponse?.Invoke(Mathf.RoundToInt(value));
         }
+
+        #endregion
+
+        #region Nested Types
 
         [System.Serializable]
         public new class VariableResponse : VariableListenerGeneric<float>.VariableResponse
@@ -43,5 +54,7 @@ namespace KenRampage.Addons.SOAP.Listeners
 
         [System.Serializable]
         public class IntUnityEvent : UnityEvent<int> { }
+
+        #endregion
     }
 }

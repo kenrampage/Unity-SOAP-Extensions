@@ -13,10 +13,20 @@ namespace KenRampage.Addons.SOAP.Listeners
     /// </summary>
     public abstract class VariableListenerGeneric<TValue> : VariableListenerBase
     {
+        #region Inspector
+
         protected abstract VariableResponse[] VariableResponses { get; }
+
+        #endregion
+
+        #region Runtime
 
         private readonly Dictionary<ScriptableVariable<TValue>, Action<TValue>> _handlers =
             new Dictionary<ScriptableVariable<TValue>, Action<TValue>>();
+
+        #endregion
+
+        #region Registration
 
         protected override void ToggleRegistration(bool toggle)
         {
@@ -46,6 +56,10 @@ namespace KenRampage.Addons.SOAP.Listeners
                 InvokeCurrentValues();
         }
 
+        #endregion
+
+        #region Invocation
+
         protected virtual void InvokeResponse(VariableResponse response, TValue value)
         {
             response.Response?.Invoke(value);
@@ -59,6 +73,10 @@ namespace KenRampage.Addons.SOAP.Listeners
                     InvokeResponse(response, response.Variable.Value);
             }
         }
+
+        #endregion
+
+        #region Introspection
 
         public override bool ContainsCallToMethod(string methodName)
         {
@@ -85,6 +103,10 @@ namespace KenRampage.Addons.SOAP.Listeners
             return containsMethod;
         }
 
+        #endregion
+
+        #region Nested Types
+
         [Serializable]
         public class VariableResponse
         {
@@ -98,5 +120,7 @@ namespace KenRampage.Addons.SOAP.Listeners
             /// </summary>
             public virtual UnityEvent<TValue> Response { get; }
         }
+
+        #endregion
     }
 }

@@ -10,9 +10,16 @@ namespace KenRampage.Addons.SOAP.Listeners
     [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener String")]
     public class VariableListenerString : VariableListenerGeneric<string>
     {
+        #region Inspector
+
         [Tooltip("Variable-response entries to subscribe and invoke.")]
         [SerializeField] private VariableResponse[] _variableResponses;
         protected override VariableListenerGeneric<string>.VariableResponse[] VariableResponses => _variableResponses;
+
+        #endregion
+
+        #region Nested Types
+
 
         [System.Serializable]
         public new class VariableResponse : VariableListenerGeneric<string>.VariableResponse
@@ -28,5 +35,6 @@ namespace KenRampage.Addons.SOAP.Listeners
 
         [System.Serializable]
         public class StringUnityEvent : UnityEvent<string> { }
+        #endregion
     }
 }

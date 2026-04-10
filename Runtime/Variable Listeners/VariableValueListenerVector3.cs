@@ -11,6 +11,8 @@ namespace KenRampage.Addons.SOAP.Listeners
     [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Value Listener Vector3")]
     public class VariableValueListenerVector3 : VariableValueListenerGeneric<Vector3>
     {
+        #region Inspector
+
         [Tooltip("Variable asset to observe for value changes.")]
         [SerializeField] private Vector3Variable _variable;
         protected override ScriptableVariable<Vector3> Variable => _variable;
@@ -18,6 +20,10 @@ namespace KenRampage.Addons.SOAP.Listeners
         [Tooltip("Value-response entries to evaluate. All matching entries will be invoked.")]
         [SerializeField] private ValueResponse[] _valueResponses;
         protected override VariableValueListenerGeneric<Vector3>.ValueResponse[] ValueResponses => _valueResponses;
+
+        #endregion
+
+        #region Nested Types
 
         [System.Serializable]
         public new class ValueResponse : VariableValueListenerGeneric<Vector3>.ValueResponse
@@ -33,5 +39,6 @@ namespace KenRampage.Addons.SOAP.Listeners
 
         [System.Serializable]
         public class Vector3UnityEvent : UnityEvent<Vector3> { }
+        #endregion
     }
 }

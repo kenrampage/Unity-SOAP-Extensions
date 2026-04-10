@@ -11,9 +11,16 @@ namespace KenRampage.Addons.SOAP.Listeners
     [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Event Value Listener Int")]
     public class EventValueListenerInt : EventValueListenerGeneric<int>
     {
+        #region Inspector
+
         [Tooltip("Event-response entries to evaluate when events are raised.")]
         [SerializeField] private EventValueResponse[] _eventResponses = null;
         protected override EventValueListenerGeneric<int>.EventValueResponse[] EventValueResponses => _eventResponses;
+
+        #endregion
+
+        #region Nested Types
+
 
         [System.Serializable]
         public new class EventValueResponse : EventValueListenerGeneric<int>.EventValueResponse
@@ -43,5 +50,6 @@ namespace KenRampage.Addons.SOAP.Listeners
         public class IntUnityEvent : UnityEvent<int>
         {
         }
+        #endregion
     }
 }

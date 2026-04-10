@@ -13,13 +13,23 @@ namespace KenRampage.Addons.SOAP.Listeners
     /// </summary>
     public abstract class EventValueListenerGeneric<TValue> : EventListenerGeneric<TValue>
     {
+        #region Inspector
+
         protected abstract EventValueResponse[] EventValueResponses { get; }
         protected override EventResponse<TValue>[] EventResponses => EventValueResponses;
+
+        #endregion
+
+        #region Matching
 
         protected virtual bool IsMatch(TValue expected, TValue current)
         {
             return EqualityComparer<TValue>.Default.Equals(expected, current);
         }
+
+        #endregion
+
+        #region Invocation
 
         protected override void InvokeResponse(ScriptableEvent<TValue> eventRaised, EventResponse<TValue> eventResponse, TValue param, bool debug)
         {
@@ -46,6 +56,10 @@ namespace KenRampage.Addons.SOAP.Listeners
             if (didInvoke && debug)
                 Debug(eventRaised);
         }
+
+        #endregion
+
+        #region Introspection
 
         public override bool ContainsCallToMethod(string methodName)
         {
@@ -81,6 +95,10 @@ namespace KenRampage.Addons.SOAP.Listeners
             return containsMethod;
         }
 
+        #endregion
+
+        #region Nested Types
+
         [Serializable]
         public class EventValueResponse : EventResponse<TValue>
         {
@@ -108,5 +126,7 @@ namespace KenRampage.Addons.SOAP.Listeners
             /// </summary>
             public virtual UnityEvent<TValue> Response { get; }
         }
+
+        #endregion
     }
 }

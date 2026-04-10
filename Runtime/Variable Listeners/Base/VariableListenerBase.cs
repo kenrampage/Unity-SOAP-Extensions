@@ -9,11 +9,17 @@ namespace KenRampage.Addons.SOAP.Listeners
     /// </summary>
     public abstract class VariableListenerBase : MonoBehaviour
     {
+        #region Types
+
         protected enum Binding
         {
             UNTIL_DESTROY,
             UNTIL_DISABLE
         }
+
+        #endregion
+
+        #region Inspector
 
         [Tooltip("Controls when this listener subscribes and unsubscribes.")]
         [SerializeField] protected Binding _binding = Binding.UNTIL_DESTROY;
@@ -21,6 +27,11 @@ namespace KenRampage.Addons.SOAP.Listeners
         [SerializeField] protected bool _invokeOnSubscribe = false;
         [Tooltip("If enabled, disables this GameObject right after subscription is set up.")]
         [SerializeField] protected bool _disableAfterSubscribing = false;
+
+        #endregion
+
+        #region Runtime
+
         protected readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
         protected abstract void ToggleRegistration(bool toggle);
@@ -29,6 +40,10 @@ namespace KenRampage.Addons.SOAP.Listeners
         /// Returns true if this listener contains a call to the method with the given name.
         /// </summary>
         public abstract bool ContainsCallToMethod(string methodName);
+
+        #endregion
+
+        #region Unity Lifecycle
 
         protected virtual void Awake()
         {
@@ -61,5 +76,7 @@ namespace KenRampage.Addons.SOAP.Listeners
                 _cancellationTokenSource.Cancel();
             }
         }
+
+        #endregion
     }
 }
