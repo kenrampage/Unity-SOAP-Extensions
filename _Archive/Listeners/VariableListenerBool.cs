@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using Obvious.Soap;
 
-namespace KenRampage.Addons.SOAP.Listeners
+namespace KenRampage.Addons.SOAP.Listeners.Old
 {
     /// <summary>
     /// Listens for changes in a ScriptableVariable<bool> and invokes UnityEvents with the updated value.
     /// Can optionally process the current value when enabled.
     /// </summary>
-    [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Bool")]
+    //[AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Bool")]
     public class VariableListenerBool : MonoBehaviour
     {
         [SerializeField] private BoolVariable _scriptableVariable;

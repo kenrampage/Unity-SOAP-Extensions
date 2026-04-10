@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using Obvious.Soap;
 
-namespace KenRampage.Addons.SOAP.Listeners
+namespace KenRampage.Addons.SOAP.Listeners.Old
 {
     /// <summary>
     /// Listens for changes in a ScriptableVariable<Vector3> and invokes UnityEvents with the updated value.
     /// Can optionally process the current value when enabled.
     /// </summary>
-    [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Vector3")]
+    //[AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Vector3")]
     public class VariableListenerVector3 : MonoBehaviour
     {
         [SerializeField] private Vector3Variable _scriptableVariable;

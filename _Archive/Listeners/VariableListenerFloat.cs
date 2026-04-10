@@ -2,14 +2,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using Obvious.Soap;
 
-namespace KenRampage.Addons.SOAP.Listeners
+namespace KenRampage.Addons.SOAP.Listeners.Old
 {
     /// <summary>
     /// Listens for changes in a ScriptableVariable<float> and invokes UnityEvents with the updated value.
     /// Supports both float and integer event callbacks, with automatic rounding for integer events.
     /// Can optionally process the current value when enabled.
     /// </summary>
-    [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Float")]
+    //[AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Float")]
     public class VariableListenerFloat : MonoBehaviour
     {
         [SerializeField] private FloatVariable _scriptableVariable;

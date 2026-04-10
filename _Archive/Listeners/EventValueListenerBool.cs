@@ -4,13 +4,13 @@ using UnityEngine.Events;
 using Obvious.Soap;
 using System;
 
-namespace KenRampage.Addons.SOAP.Listeners
+namespace KenRampage.Addons.SOAP.Listeners.Old
 {
     /// <summary>
     /// Listens for ScriptableEventBool events and triggers corresponding UnityEvents when the event value matches defined conditions.
     /// Supports multiple value-based responses through a configurable list of EventValueResponseBool entries.
     /// </summary>
-    [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Event Value Listener Bool")]
+    //[AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Event Value Listener Bool")]
     public class EventValueListenerBool : MonoBehaviour
     {
         [SerializeField] private ScriptableEventBool _scriptableEvent;
