@@ -7,6 +7,10 @@ using Obvious.Soap;
 
 namespace KenRampage.Addons.SOAP.Listeners
 {
+    /// <summary>
+    /// Generic variable listener that subscribes to one or more ScriptableVariables
+    /// and invokes the configured response for each variable update.
+    /// </summary>
     public abstract class VariableListenerGeneric<TValue> : VariableListenerBase
     {
         protected abstract VariableResponse[] VariableResponses { get; }
@@ -84,7 +88,14 @@ namespace KenRampage.Addons.SOAP.Listeners
         [Serializable]
         public class VariableResponse
         {
+            /// <summary>
+            /// Variable source for this response entry.
+            /// </summary>
             public virtual ScriptableVariable<TValue> Variable { get; }
+
+            /// <summary>
+            /// Event invoked when the corresponding variable changes.
+            /// </summary>
             public virtual UnityEvent<TValue> Response { get; }
         }
     }

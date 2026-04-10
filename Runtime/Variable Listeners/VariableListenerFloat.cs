@@ -11,6 +11,7 @@ namespace KenRampage.Addons.SOAP.Listeners
     [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Float")]
     public class VariableListenerFloat : VariableListenerGeneric<float>
     {
+        [Tooltip("Variable-response entries to subscribe and invoke.")]
         [SerializeField] private VariableResponse[] _variableResponses;
         protected override VariableListenerGeneric<float>.VariableResponse[] VariableResponses => _variableResponses;
 
@@ -24,12 +25,15 @@ namespace KenRampage.Addons.SOAP.Listeners
         [System.Serializable]
         public new class VariableResponse : VariableListenerGeneric<float>.VariableResponse
         {
+            [Tooltip("Variable asset source for this response entry.")]
             [SerializeField] private FloatVariable _variable;
             public override ScriptableVariable<float> Variable => _variable;
 
+            [Tooltip("UnityEvent invoked when this variable changes.")]
             [SerializeField] private FloatUnityEvent _response;
             public override UnityEvent<float> Response => _response;
 
+            [Tooltip("Optional integer event using rounded value.")]
             [SerializeField] private IntUnityEvent _intResponse;
             public UnityEvent<int> IntResponse => _intResponse;
         }

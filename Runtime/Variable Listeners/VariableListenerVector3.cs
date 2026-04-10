@@ -10,15 +10,18 @@ namespace KenRampage.Addons.SOAP.Listeners
     [AddComponentMenu("Ken Rampage/Addons/SOAP/Listeners/Variable Listener Vector3")]
     public class VariableListenerVector3 : VariableListenerGeneric<Vector3>
     {
+        [Tooltip("Variable-response entries to subscribe and invoke.")]
         [SerializeField] private VariableResponse[] _variableResponses;
         protected override VariableListenerGeneric<Vector3>.VariableResponse[] VariableResponses => _variableResponses;
 
         [System.Serializable]
         public new class VariableResponse : VariableListenerGeneric<Vector3>.VariableResponse
         {
+            [Tooltip("Variable asset source for this response entry.")]
             [SerializeField] private Vector3Variable _variable;
             public override ScriptableVariable<Vector3> Variable => _variable;
 
+            [Tooltip("UnityEvent invoked when this variable changes.")]
             [SerializeField] private Vector3UnityEvent _response;
             public override UnityEvent<Vector3> Response => _response;
         }

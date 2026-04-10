@@ -4,7 +4,8 @@ using UnityEngine;
 namespace KenRampage.Addons.SOAP.Listeners
 {
     /// <summary>
-    /// Base class for all variable listeners.
+    /// Base lifecycle class for listener components in this extensions package.
+    /// Controls binding lifetime and optional one-time invocation at subscribe time.
     /// </summary>
     public abstract class VariableListenerBase : MonoBehaviour
     {
@@ -14,8 +15,11 @@ namespace KenRampage.Addons.SOAP.Listeners
             UNTIL_DISABLE
         }
 
+        [Tooltip("Controls when this listener subscribes and unsubscribes.")]
         [SerializeField] protected Binding _binding = Binding.UNTIL_DESTROY;
+        [Tooltip("If enabled, invokes listener responses once immediately after subscribing.")]
         [SerializeField] protected bool _invokeOnSubscribe = false;
+        [Tooltip("If enabled, disables this GameObject right after subscription is set up.")]
         [SerializeField] protected bool _disableAfterSubscribing = false;
         protected readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 

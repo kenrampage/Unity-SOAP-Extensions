@@ -7,6 +7,10 @@ using Obvious.Soap;
 
 namespace KenRampage.Addons.SOAP.Listeners
 {
+    /// <summary>
+    /// Generic value-matching listener for a single ScriptableVariable.
+    /// Evaluates all configured value responses and invokes ALL matching entries in array order.
+    /// </summary>
     public abstract class VariableValueListenerGeneric<TValue> : VariableListenerBase
     {
         protected abstract ScriptableVariable<TValue> Variable { get; }
@@ -96,7 +100,14 @@ namespace KenRampage.Addons.SOAP.Listeners
         [Serializable]
         public class ValueResponse
         {
+            /// <summary>
+            /// Expected value to compare against the incoming variable value.
+            /// </summary>
             public virtual TValue Value { get; }
+
+            /// <summary>
+            /// Event invoked when the expected value matches.
+            /// </summary>
             public virtual UnityEvent<TValue> Response { get; }
         }
     }

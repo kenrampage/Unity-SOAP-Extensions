@@ -7,6 +7,10 @@ using Obvious.Soap;
 
 namespace KenRampage.Addons.SOAP.Listeners
 {
+    /// <summary>
+    /// Generic value-matching listener for ScriptableEvents.
+    /// On event raise, evaluates all configured value responses and invokes ALL matching entries in array order.
+    /// </summary>
     public abstract class EventValueListenerGeneric<TValue> : EventListenerGeneric<TValue>
     {
         protected abstract EventValueResponse[] EventValueResponses { get; }
@@ -80,14 +84,28 @@ namespace KenRampage.Addons.SOAP.Listeners
         [Serializable]
         public class EventValueResponse : EventResponse<TValue>
         {
+            /// <summary>
+            /// ScriptableEvent source for this event response entry.
+            /// </summary>
             public override ScriptableEvent<TValue> ScriptableEvent { get; }
+
+            /// <summary>
+            /// Value filters and events to evaluate for this scriptable event.
+            /// </summary>
             public virtual ValueResponse[] ValueResponses { get; }
         }
 
         [Serializable]
         public class ValueResponse
         {
+            /// <summary>
+            /// Expected event payload value for this response.
+            /// </summary>
             public virtual TValue Value { get; }
+
+            /// <summary>
+            /// Event invoked when the expected value matches the event payload.
+            /// </summary>
             public virtual UnityEvent<TValue> Response { get; }
         }
     }
