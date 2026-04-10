@@ -6,6 +6,10 @@ This package adds listener components that expand SOAP workflows with additional
 
 ## Features
 
+- Bindings
+  - `BindTransform` — Reads or writes transform position, rotation, or scale to/from a Vector3Variable. Supports world and local space, per-axis constraints, and auto-resolves to this GameObject's transform if no target is assigned.
+  - `BindGameObjectActiveState` — Binds a BoolVariable to a GameObject's active state. Supports an invert toggle to flip the relationship. Auto-falls back to this GameObject if no target is assigned.
+
 - Variable Listeners
   - Listen to SOAP ScriptableVariables and invoke UnityEvents on value changes.
   - Includes binding controls (`UNTIL_DESTROY` and `UNTIL_DISABLE`) and optional invoke-on-subscribe behavior.
@@ -35,6 +39,9 @@ The listener sets cover the following SOAP types:
 - `GameObject`
 
 ## Runtime Folder Layout
+
+- `Runtime/Bindings`
+  - Transform and GameObject bindings
 
 - `Runtime/Variable Listeners`
   - Variable listeners
