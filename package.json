@@ -4,6 +4,13 @@
   "displayName": "Unity SOAP Extensions",
   "description": "Extensions for Obvious SOAP package, including typed event and variable listeners, binding components, and more.",
   "unity": "6000.0",
+  "samples": [
+    {
+      "displayName": "Examples",
+      "description": "Example scenes, prefabs, scriptable objects, and scripts for the package.",
+      "path": "Samples~"
+    }
+  ],
   "author": {
     "name": "Ken Rampage",
     "url": "https://github.com/kenrampage"
