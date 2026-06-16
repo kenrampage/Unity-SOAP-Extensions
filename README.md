@@ -57,7 +57,7 @@ The listener sets cover the following SOAP types:
 
 ## Sample Scene Usage
 
-### SOAP-Extensions_Example_VariableListeners
+### SOAP-Extensions_Example_VariableListeners.scene
 
 The Variable Listeners sample scene is meant to be observed, not clicked through. Start Play Mode, then edit the ScriptableObject assets in the Project window while the game is running. The scene UI listens for those runtime changes and updates live to reflect the current values.
 
