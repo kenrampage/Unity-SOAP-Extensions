@@ -7,6 +7,10 @@ This package adds listener components that expand SOAP (ScriptableObject Archite
 - These extensions are designed to follow SOAP patterns while adding value-filtered listener workflows.
 - Inspector fields include summaries and tooltips to make setup and maintenance easier.
 
+## Requirements
+- Unity v6.0 or newer
+- SOAP Package v3.8 or newer - [available from the Unity Asset Store](https://assetstore.unity.com/packages/tools/utilities/soap-scriptableobject-architecture-pattern-232107?srsltid=AfmBOoq50efPZ-9k1mTLjuLdR9qWUaXgY4C4KpRLr5_UqcQZREA6R1go)
+
 ## Install With UPM
 
 1. Open your Unity project.
